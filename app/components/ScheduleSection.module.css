@@ -1,0 +1,230 @@
+.schedule {
+    padding: var(--space-5xl) 0;
+    background: var(--color-base-gray);
+    /* Gray Background */
+    position: relative;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    letter-spacing: 0.3em;
+    display: block;
+    margin-bottom: var(--space-md);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-text-main);
+    letter-spacing: 0.02em;
+    margin: 0 0 var(--space-lg);
+}
+
+.description {
+    font-size: 1rem;
+    color: var(--color-text-sub);
+    margin: 0;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-2xl) 0;
+}
+
+.timelineLine {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-border);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+    .timelineLine {
+        left: 24px;
+    }
+}
+
+/* Event Card */
+.eventCard {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+    width: calc(50% - var(--space-2xl));
+}
+
+/* Background for card content on gray bg? No, keep it clean. */
+
+.eventCard.left {
+    margin-right: auto;
+    /* padding-right: var(--space-lg); */
+    flex-direction: row-reverse;
+    text-align: right;
+    justify-content: flex-start;
+}
+
+.eventCard.right {
+    margin-left: auto;
+    /* padding-left: var(--space-lg); */
+}
+
+@media (max-width: 767px) {
+
+    .eventCard,
+    .eventCard.left,
+    .eventCard.right {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 60px;
+        padding-right: 0;
+        flex-direction: row;
+        text-align: left;
+        gap: var(--space-md);
+    }
+}
+
+.eventDot {
+    position: absolute;
+    top: 12px;
+    width: 12px;
+    height: 12px;
+    background: var(--color-base-white);
+    border: 2px solid var(--color-primary);
+    /* Changed to primary */
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--color-base-gray);
+    /* Match bg color for spacing effect */
+}
+
+/* Dot positioning logic from previous step, simplified */
+@media (min-width: 768px) {
+    .eventCard {
+        width: calc(50% - 40px);
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .eventCard.left {
+        margin-right: auto;
+    }
+
+    .eventCard.right {
+        margin-left: auto;
+    }
+
+    .eventCard.left .eventDot {
+        right: -46px;
+    }
+
+    .eventCard.right .eventDot {
+        left: -46px;
+    }
+}
+
+@media (max-width: 767px) {
+    .eventCard .eventDot {
+        left: 19px;
+    }
+}
+
+/* Event Date */
+.eventDate {
+    display: flex;
+    flex-direction: column;
+    min-width: 60px;
+}
+
+.eventCard.left .eventDate {
+    align-items: flex-end;
+}
+
+.eventCard.right .eventDate {
+    align-items: flex-start;
+}
+
+@media (max-width: 767px) {
+    .eventCard.left .eventDate {
+        align-items: flex-start;
+    }
+}
+
+.eventMonth {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+}
+
+.eventDay {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-text-main);
+    line-height: 1;
+}
+
+/* Event Content */
+.eventContent {
+    flex: 1;
+}
+
+.eventType {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: var(--space-sm);
+    background: #E0E0E0;
+    /* Darker gray for visibility on light gray bg */
+    color: var(--color-text-main);
+    font-weight: 600;
+}
+
+.eventTitle {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin: 0 0 var(--space-xs);
+    line-height: 1.4;
+}
+
+.eventLocation {
+    font-size: 0.875rem;
+    color: var(--color-text-sub);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.locationIcon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    color: var(--color-primary);
+}

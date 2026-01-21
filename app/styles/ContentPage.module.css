@@ -1,0 +1,121 @@
+.page {
+  padding: calc(var(--space-5xl) + 40px) 0 var(--space-5xl);
+  background: linear-gradient(180deg, #f8f9fb 0%, #ffffff 60%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.hero {
+  display: grid;
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--color-primary);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  margin: 0;
+}
+
+.titleAnimate {
+  display: inline-flex;
+  gap: 0.06em;
+  flex-wrap: wrap;
+}
+
+.titleChar {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+  filter: blur(6px);
+  animation: titleReveal 0.9s var(--ease-out-expo) forwards;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes titleReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.lead {
+  color: var(--color-text-sub);
+  max-width: 600px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+}
+
+.card {
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-base-white);
+  padding: var(--space-xl);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.badge {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+
+.cardText {
+  color: var(--color-text-sub);
+  margin: 0;
+}
+
+.subText {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: var(--space-sm);
+}
+
+.empty {
+  border: 1px dashed var(--color-border);
+  background: #fafbfc;
+  padding: var(--space-2xl);
+  border-radius: 16px;
+  text-align: center;
+  color: var(--color-text-sub);
+}

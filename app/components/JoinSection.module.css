@@ -1,0 +1,218 @@
+.join {
+    padding: var(--space-5xl) 0;
+    background: var(--color-base-light);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Start Line Effect - Simplified to static or subtle line */
+.startLine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: var(--color-border);
+    opacity: 0.5;
+    transform: translateY(-50%) scaleX(0);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.startLine.active {
+    transform: translateY(-50%) scaleX(1);
+    background: var(--color-primary);
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    position: relative;
+    z-index: 1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4xl);
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+/* Content */
+.content {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .content {
+        text-align: left;
+    }
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    letter-spacing: 0.3em;
+    display: block;
+    margin-bottom: var(--space-md);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    color: var(--color-text-main);
+    line-height: 1.2;
+    margin: 0 0 var(--space-lg);
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--color-text-sub);
+    margin: 0 0 var(--space-2xl);
+}
+
+/* Info */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-base-white);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.infoItem:hover {
+    border-color: var(--color-border);
+}
+
+@media (min-width: 1024px) {
+    .infoItem {
+        justify-content: flex-start;
+    }
+}
+
+.infoIcon {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+}
+
+.infoLabel {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+    display: block;
+}
+
+.infoValue {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+/* Form */
+.formWrapper {
+    background: var(--color-base-white);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-2xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.formLabel {
+    font-size: 0.875rem;
+    color: var(--color-text-sub);
+    font-weight: 500;
+}
+
+.formInput {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: var(--color-base-gray);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: var(--color-text-main);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.formInput::placeholder {
+    color: var(--color-text-muted);
+}
+
+.formInput:focus {
+    outline: none;
+    background: var(--color-base-white);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+textarea.formInput {
+    resize: vertical;
+    min-height: 120px;
+}
+
+select.formInput {
+    appearance: none;
+    /* background-image... keep existing or simple SVG */
+}
+
+/* Form Validation */
+.required {
+    color: var(--color-primary);
+    margin-left: 0.25rem;
+}
+
+.formInputError {
+    border-color: #dc2626 !important;
+    background: #fef2f2 !important;
+}
+
+.errorMessage {
+    font-size: 0.875rem;
+    color: #dc2626;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.successMessage {
+    font-size: 0.875rem;
+    color: #16a34a;
+    background: #f0fdf4;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #86efac;
+    margin-bottom: var(--space-md);
+    display: block;
+}

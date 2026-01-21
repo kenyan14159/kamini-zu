@@ -1,0 +1,113 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-base-white);
+    padding: var(--space-3xl) var(--gutter);
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-xl);
+}
+
+/* Label */
+.label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.labelText {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-sub);
+    letter-spacing: 0.1em;
+}
+
+.labelLine {
+    width: 40px;
+    height: 1px;
+    background-color: var(--color-border);
+}
+
+/* Main Title */
+.titleMain {
+    font-family: var(--font-body);
+    font-size: clamp(3.2rem, 10vw, 8.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: var(--color-text-main);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.titleRow {
+    display: flex;
+    overflow: hidden;
+    /* For reveal animation */
+}
+
+.titleAccent .charWrapper .char {
+    color: var(--color-primary);
+    /* アクセントカラー */
+}
+
+.charWrapper {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.charWrapper .char {
+    display: inline-block;
+    transform-origin: bottom center;
+    will-change: transform, opacity, filter;
+}
+
+/* Mission Text */
+.mission {
+    max-width: 500px;
+    margin-top: var(--space-md);
+}
+
+.missionText {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-sub);
+    font-weight: 500;
+}
+
+/* CTA */
+.ctaGroup {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+@media (max-width: 600px) {
+    .ctaGroup {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .ctaGroup>* {
+        width: 100%;
+    }
+}
