@@ -73,7 +73,15 @@ export default function JoinSection() {
         setErrorMessage("");
 
         try {
-            const response = await fetch("/api/contact", {
+            const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+
+            if (!endpoint) {
+                setSubmitStatus("error");
+                setErrorMessage("送信先が未設定です。NEXT_PUBLIC_CONTACT_ENDPOINT を設定してください。");
+                return;
+            }
+
+            const response = await fetch(endpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
